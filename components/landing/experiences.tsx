@@ -3,9 +3,9 @@
 import { experiences, whatido } from "@/data/experiences"
 import * as React from "react"
 
-export default function Experiences({ isTimelineOpen, setIsTimelineOpen }: any) {
+export default function Experiences({ background }: { background: string }) {
     return (
-        <section className="sticky top-20 min-h-screen bg-muted px-6 pt-10 -mt-20">
+        <section className={`sticky top-20 min-h-screen ${background} px-6 pt-10 -mt-20`}>
             <div className="mx-auto max-w-[800px]">
                 <div className="grid gap-8 lg:grid-cols-2">
                     {/* Timeline Column - Hidden on mobile unless toggled */}

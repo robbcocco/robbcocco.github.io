@@ -1,8 +1,8 @@
 export const navigation = [
-    // {
-    //     name: "blog",
-    //     url: "/blog",
-    // },
+    {
+        name: "journal",
+        url: "/journal",
+    },
     {
         name: "work experience",
         url: "#experience",

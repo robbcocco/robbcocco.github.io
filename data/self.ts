@@ -1,6 +1,6 @@
 export const self = {
     title: "Hi, I'm Roberto Cocco",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+    description: `Full time developer, both for sites and negatives!`,
     email: "",
     phone: "",
     location: "Cagliari, Italy",

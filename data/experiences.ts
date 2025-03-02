@@ -23,9 +23,9 @@ export const experiences = [
 
 export const whatido = {
     description: `
-    I'm well versed in backend development and have experience in building RESTful APIs with Node.js and Express or NestJS.
-    I am also capable of working with a variety of databases, including SQL and NoSQL solutions, and have experience with Docker.
-    I am passionate about clean code and try my best at creating maintainable solutions.`,
+    Well versed in backend development with years of experience in building RESTful APIs with Node.js and Express or NestJS.
+    Capable of working with a variety of databases, including SQL and NoSQL solutions, also have experience with Docker.
+    Passionate about clean code, I try my best at creating maintainable solutions.`,
     list: [
         "NodeJS",
         "ExpressJS",

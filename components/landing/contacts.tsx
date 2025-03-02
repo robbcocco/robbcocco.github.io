@@ -4,9 +4,9 @@ import * as React from "react"
 import Link from "next/link"
 import { self } from "@/data/self"
 
-export default function Contacts() {
+export default function Contacts({ background }: { background: string }) {
     return (
-        <section className="sticky top-20 flex min-h-screen items-center justify-center bg-background px-6 -mt-20">
+        <section className={`sticky top-20 flex min-h-screen items-center justify-center ${background} px-6 -mt-20`}>
             <div className="mx-auto max-w-[800px] text-center">
                 <h2 id="contactme" className="mb-12 text-2xl font-semibold">Get in Touch</h2>
                 <div className="space-y-6">
