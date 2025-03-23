@@ -28,7 +28,7 @@ export default function PostSideFilm({
         <main className="min-h-screen bg-background">
             <NavbarLite />
 
-            <div className="border-b bg-muted px-6 py-12 top-20 relative z-30">
+            <div className="border-b bg-muted px-6 py-12 mt-20 z-30">
                 <div className="mx-auto max-w-[800px]">
                     <div className="space-y-4">
                         <div className="text-sm text-muted-foreground">{post.date}</div>
