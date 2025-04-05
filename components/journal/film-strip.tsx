@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProps) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const [sprocketCount, setSprocketCount] = useState(6);
+    const [contentHeight, setContentHeight] = useState(0);
 
     useEffect(() => {
         const updateSprocketCount = () => {
             if (contentRef.current) {
                 const height = contentRef.current.offsetHeight;
+                setContentHeight(height);
                 // Calculate number of sprockets based on height
                 // Assuming each sprocket is 12px (h-3) plus some spacing
                 const spacing = 15; // Approximate spacing between sprockets
@@ -34,25 +36,33 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
     const getFilmCode = (index?: number) => {
         if (!index) return '';
         
+        // Calculate the number of pattern repetitions based on height
+        const baseLength = 2; // Minimum number of pattern repetitions
+        const additionalLength = Math.floor(contentHeight / 100); // Add more patterns for every 100px
+        const repetitions = Math.max(baseLength, Math.min(5, baseLength + additionalLength));
+        
         // Create an array of different patterns to choose from based on the index
         const patterns = [
             '▥', '▤', '▨', '░', '▒', '▓', '█', '▚', '▞', '▙', '▟', '▛', '▜'
         ];
         
-        // Use the index to select different patterns
-        const pattern1 = patterns[index % patterns.length];
-        const pattern2 = patterns[(index + 3) % patterns.length];
-        
-        // Format the frame number with padding
-        const frameNum = index.toString().padStart(2, '0');
-        
-        // Create alternating symbols for visual interest
         const symbols = ['◢', '◣', '◤', '◥', '△', '▽', '□', '◇'];
         const sym1 = symbols[index % symbols.length];
         const sym2 = symbols[(index + 2) % symbols.length];
         
+        // Generate pattern sequence
+        let patternSequence = '';
+        for (let i = 0; i < repetitions; i++) {
+            const pattern1 = patterns[(index + i) % patterns.length];
+            const pattern2 = patterns[(index + i + 3) % patterns.length];
+            patternSequence += pattern1 + pattern2;
+        }
+        
+        // Format the frame number with padding
+        const frameNum = index.toString().padStart(2, '0');
+        
         // Combine everything into a film-like code
-        return `${sym1}${pattern1}${pattern2}${sym2} ${frameNum}A ${sym2}${pattern2}${pattern1}${sym1}`;
+        return `${sym1}${patternSequence}${sym2} ${frameNum}A ${sym2}${patternSequence.split('').reverse().join('')}${sym1}`;
     };
 
     return (
