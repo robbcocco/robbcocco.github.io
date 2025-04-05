@@ -127,7 +127,7 @@ export function Negative({
                     {...props}
                     src={src}
                     alt={alt}
-                    className={`transition-all duration-300 align-bottom object-cover rounded-sm ${className}`}
+                    className={`transition-all duration-300 align-bottom object-cover rounded-sm hover:[filter:invert(100%)] ${className}`}
                     style={{ objectFit: "cover" }}
                 />
             </div>
