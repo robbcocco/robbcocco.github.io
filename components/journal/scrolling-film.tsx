@@ -125,7 +125,7 @@ export default function ScrollingFilm({
                                             </div>
                                         }
                                         <figure className='w-full h-full px-8 cursor-pointer' onClick={() => setSelectedImage(image.src)}>
-                                            <Negative src={image.src} alt={image.alt} />
+                                            <Negative src={image.src} alt={image.alt} portrait={false} />
                                         </figure>
                                     </div>
                                 </div>

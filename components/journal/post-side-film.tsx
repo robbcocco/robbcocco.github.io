@@ -1,10 +1,9 @@
 "use client"
 
 import NavbarLite from "@/components/commons/navbar-lite"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
-import { Negative } from "../commons/negative"
 import ScrollingFilm from "./scrolling-film"
 
 export default function PostSideFilm({
