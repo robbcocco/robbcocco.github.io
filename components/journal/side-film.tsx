@@ -6,7 +6,7 @@ import Image from "next/image"
 import { X } from "lucide-react"
 import ScrollingFilm from "./scrolling-film"
 
-export default function PostSideFilm({
+export default function SideFilm({
     children,
     post,
     slideshow,

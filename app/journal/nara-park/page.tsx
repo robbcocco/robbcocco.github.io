@@ -1,7 +1,7 @@
 "use client"
 
 import { post } from "@/data/journal/nara-park"
-import PostSideFilm from "@/components/journal/post-side-film"
+import SideFilm from "@/components/journal/side-film"
 
 const filmBrand = 'Ektar 100';
 
@@ -10,7 +10,7 @@ export default function BlogPage() {
 
     return (
         <>
-            <PostSideFilm post={post} slideshow={post.images} film_brand={filmBrand}>
+            <SideFilm post={post} slideshow={post.images} film_brand={filmBrand}>
                 <div className='grid gap-y-2'>
                     {main.map((image: any, index: number) => (
                         <div key={index}>
@@ -24,7 +24,7 @@ export default function BlogPage() {
                         </div>
                     ))}
                 </div>
-            </PostSideFilm>
+            </SideFilm>
         </>
     )
 }
