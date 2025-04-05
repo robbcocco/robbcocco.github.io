@@ -7,6 +7,7 @@ export const self = {
     social: [
         { name: "Lomography", url: "https://www.lomography.com/homes/not_robb" },
         { name: "Instagram", url: "https://instagram.com/not_robb" },
+        { name: "Letterboxd", url: "https://letterboxd.com/not_robb/" },
         { name: "GitHub", url: "https://github.com/robbcocco" },
         { name: "LinkedIn", url: "https://www.linkedin.com/in/roberto-cocco/" },
     ],

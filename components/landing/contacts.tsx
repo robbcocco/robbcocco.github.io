@@ -3,10 +3,12 @@
 import * as React from "react"
 import Link from "next/link"
 import { self } from "@/data/self"
+import { LandingComponent } from "./interfaces"
+import { cn } from "@/lib/utils"
 
-export default function Contacts({ background }: { background: string }) {
+const Contacts: LandingComponent = ({ className }) => {
     return (
-        <section className={`sticky top-20 flex min-h-screen items-center justify-center ${background} px-6 -mt-20`}>
+        <section className={cn(`flex min-h-screen items-center justify-center px-6 -mt-20`, className)}>
             <div className="mx-auto max-w-[800px] text-center">
                 <h2 id="contactme" className="mb-12 text-2xl font-semibold">Get in Touch</h2>
                 <div className="space-y-6">
@@ -44,3 +46,5 @@ export default function Contacts({ background }: { background: string }) {
         </section>
     )
 }
+
+export default Contacts;

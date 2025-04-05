@@ -2,10 +2,12 @@
 
 import { experiences, whatido } from "@/data/experiences"
 import * as React from "react"
+import { LandingComponent } from "./interfaces"
+import { cn } from "@/lib/utils"
 
-export default function Experiences({ background }: { background: string }) {
+const Experiences: LandingComponent = ({ className }) => {
     return (
-        <section className={`sticky top-20 min-h-screen ${background} px-6 pt-10 -mt-20`}>
+        <section className={cn(`min-h-screen px-6 pt-10 -mt-20`, className)}>
             <div className="mx-auto max-w-[800px]">
                 <div className="grid gap-8 lg:grid-cols-2">
                     {/* Timeline Column - Hidden on mobile unless toggled */}
@@ -65,3 +67,5 @@ export default function Experiences({ background }: { background: string }) {
         </section>
     )
 }
+
+export default Experiences;

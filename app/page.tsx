@@ -8,9 +8,10 @@ import Experiences from "@/components/landing/experiences"
 import Entries from "@/components/landing/entries"
 import Projects from "@/components/landing/projects"
 import Contacts from "@/components/landing/contacts"
+import { LandingComponent } from "@/components/landing/interfaces"
 
 export default function Page() {
-  const homepage = [Hero, Entries, Experiences, Projects, Contacts]
+  const homepage: LandingComponent[] = [Hero, Entries, Experiences, Projects, Contacts]
 
   return (
     <main className="min-h-screen bg-background">
@@ -18,11 +19,12 @@ export default function Page() {
       {/* Navbar */}
       <Navbar />
 
-      {
-        homepage.map((Component, index) => (
-          <Component key={index} background={index%2 === 0 ? "bg-background" : "bg-muted"} />
-        ))
-      }
+      {homepage.map((Component, index) => (
+        <Component 
+          key={index} 
+          className={`${index % 2 === 0 ? "bg-background" : "bg-muted"} ${index === 0 ? "sticky top-0" : "sticky top-20"}` }
+        />
+      ))}
 
     </main>
   )

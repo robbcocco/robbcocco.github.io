@@ -1,13 +1,15 @@
 "use client"
 
 import { self } from "@/data/self"
-import { Film, Github, Instagram, Linkedin } from "lucide-react"
+import { Github, Instagram, Linkedin, Camera, Film } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
+import { LandingComponent } from "./interfaces"
+import { cn } from "@/lib/utils"
 
-export default function Hero({ background }: { background: string }) {
+const Hero: LandingComponent = ({ className }) => {
     return (
-        <section className={`sticky top-0 flex min-h-screen items-center justify-center ${background} px-6 mb-20`}>
+        <section className={cn(`flex min-h-screen items-center justify-center px-6 mb-20`, className)}>
             <div className="mx-auto max-w-[800px] text-center">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">{self.title}</h1>
                 <p className="mt-6 text-lg text-muted-foreground">{self.description}</p>
@@ -22,8 +24,9 @@ export default function Hero({ background }: { background: string }) {
                         >
                             {social.name === "LinkedIn" ? <Linkedin className="h-6 w-6" /> : null}
                             {social.name === "GitHub" ? <Github className="h-6 w-6" /> : null}
-                            {social.name === "Lomography" ? <Film className="h-6 w-6" /> : null}
+                            {social.name === "Lomography" ? <Camera className="h-6 w-6" /> : null}
                             {social.name === "Instagram" ? <Instagram className="h-6 w-6" /> : null}
+                            {social.name === "Letterboxd" ? <Film className="h-6 w-6" /> : null}
                             <span className="sr-only">{social.name}</span>
                         </Link>
                     ))}
@@ -32,3 +35,5 @@ export default function Hero({ background }: { background: string }) {
         </section>
     )
 }
+
+export default Hero;

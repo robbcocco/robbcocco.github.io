@@ -4,7 +4,8 @@ import { projects } from "@/data/projects"
 import { Github } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
-
+import { LandingComponent } from "./interfaces"
+import { cn } from "@/lib/utils"
 
 const reduceArray = (array: any[], size: number) => {
     return array.reduce((resultArray, item, index) => {
@@ -22,9 +23,9 @@ const reduceArray = (array: any[], size: number) => {
 const projectsByTwo = reduceArray(projects, 2);
 const projectsByFour = reduceArray(projects, 4);
 
-export default function Projects({ background }: { background: string }) {
+const Projects: LandingComponent = ({ className }) => {
     return (
-        <section className={`sticky top-20 min-h-screen ${background} px-6 pt-10 -mt-20`}>
+        <section className={cn(`min-h-screen px-6 pt-10 -mt-20`, className)}>
             <div className="mx-auto max-w-[800px]">
                 <h2 id="projects" className="mb-12 text-2xl font-semibold">Projects</h2>
                 {/* Desktop Grid */}
@@ -111,3 +112,5 @@ export default function Projects({ background }: { background: string }) {
         </section>
     )
 }
+
+export default Projects;
