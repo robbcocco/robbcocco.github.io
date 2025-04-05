@@ -36,7 +36,7 @@ export default function ScrollingFilm({
                                 <FilmStrip
                                     key={index}
                                     filmBrand={(index + 2) % 3 === 0 ? film_brand : undefined}
-                                    index={index}
+                                    index={index+1}
                                     onClick={() => setSelectedImage(image.src)}
                                 >
                                     <Negative src={image.src} alt={image.alt} portrait={false} />

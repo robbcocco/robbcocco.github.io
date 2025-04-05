@@ -11,7 +11,7 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
                 const height = contentRef.current.offsetHeight;
                 // Calculate number of sprockets based on height
                 // Assuming each sprocket is 12px (h-3) plus some spacing
-                const spacing = 16; // Approximate spacing between sprockets
+                const spacing = 15; // Approximate spacing between sprockets
                 const newCount = Math.max(6, Math.floor(height / spacing));
                 setSprocketCount(newCount);
             }
@@ -31,6 +31,30 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
         };
     }, []);
 
+    const getFilmCode = (index?: number) => {
+        if (!index) return '';
+        
+        // Create an array of different patterns to choose from based on the index
+        const patterns = [
+            '▥', '▤', '▨', '░', '▒', '▓', '█', '▚', '▞', '▙', '▟', '▛', '▜'
+        ];
+        
+        // Use the index to select different patterns
+        const pattern1 = patterns[index % patterns.length];
+        const pattern2 = patterns[(index + 3) % patterns.length];
+        
+        // Format the frame number with padding
+        const frameNum = index.toString().padStart(2, '0');
+        
+        // Create alternating symbols for visual interest
+        const symbols = ['◢', '◣', '◤', '◥', '△', '▽', '□', '◇'];
+        const sym1 = symbols[index % symbols.length];
+        const sym2 = symbols[(index + 2) % symbols.length];
+        
+        // Combine everything into a film-like code
+        return `${sym1}${pattern1}${pattern2}${sym2} ${frameNum}A ${sym2}${pattern2}${pattern1}${sym1}`;
+    };
+
     return (
         <div className="relative overflow-hidden">
             <div className={`absolute left-0 top-0 z-20 h-full w-4 bg-background`}>
@@ -42,8 +66,8 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
             </div>
             <div className={`absolute left-0 top-0 z-20 h-full w-4`}>
                 <div className="pb-8 rotate-[90deg] transform whitespace-nowrap">
-                    <span className="text-xs -translate-y-1/2 tracking-tight dark:text-[#EC7532] text-muted-foreground">
-                        {`░▌ ▒░▌ ░▒░▒${index ? index + 1 : ''}A`}
+                    <span className="font-mono text-[10px] -translate-y-1/2 tracking-[0.12em] dark:text-[#EC7532] text-muted-foreground opacity-90">
+                        {getFilmCode(index)}
                     </span>
                 </div>
             </div>
@@ -56,8 +80,8 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
             </div>
             {filmBrand && (
                 <div className={`absolute right-0 top-0 z-20 h-full w-4`}>
-                    <div className="pt-8 rotate-90 transform whitespace-nowrap">
-                        <span className="text-xs -translate-y-1/2 tracking-widest dark:text-[#EC7532] text-muted-foreground">
+                    <div className="pb-8 absolute top-1/2 right-0 -translate-y-1/2 rotate-90 transform whitespace-nowrap">
+                        <span className="font-mono text-[10px] tracking-[0.25em] dark:text-[#EC7532] text-muted-foreground opacity-90 uppercase">
                             {filmBrand}
                         </span>
                     </div>
