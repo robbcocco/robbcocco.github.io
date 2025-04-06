@@ -75,8 +75,8 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
                 </div>
             </div>
             <div className={`absolute left-0 top-0 z-20 h-full w-4`}>
-                <div className="pb-8 rotate-[90deg] transform whitespace-nowrap">
-                    <span className="font-mono text-[10px] -translate-y-1/2 tracking-[0.12em] dark:text-[#EC7532] text-muted-foreground opacity-90">
+                <div className="pb-10 -translate-y-1/2 rotate-90 transform whitespace-nowrap">
+                    <span className="font-mono text-[10px] tracking-[0.12em] dark:text-[#EC7532] text-muted-foreground opacity-90">
                         {getFilmCode(index)}
                     </span>
                 </div>
@@ -90,8 +90,8 @@ export const FilmStrip = ({ children, filmBrand, index, onClick }: FilmStripProp
             </div>
             {filmBrand && (
                 <div className={`absolute right-0 top-0 z-20 h-full w-4`}>
-                    <div className="pb-8 absolute top-1/2 right-0 -translate-y-1/2 rotate-90 transform whitespace-nowrap">
-                        <span className="font-mono text-[10px] tracking-[0.25em] dark:text-[#EC7532] text-muted-foreground opacity-90 uppercase">
+                    <div className="pb-12 absolute top-1/2 right-0 -translate-y-1/2 rotate-90 transform whitespace-nowrap">
+                        <span className="font-mono text-[12px] tracking-[0.25em] dark:text-[#EC7532] text-muted-foreground opacity-90 uppercase">
                             {filmBrand}
                         </span>
                     </div>
