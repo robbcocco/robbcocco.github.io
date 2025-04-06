@@ -1,14 +1,14 @@
 "use client"
 
-import { projects } from "@/data/projects"
+import { projects, Project } from "@/data/projects"
 import { Github } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
 import { LandingComponent } from "./interfaces"
 import { cn } from "@/lib/utils"
 
-const reduceArray = (array: any[], size: number) => {
-    return array.reduce((resultArray, item, index) => {
+const reduceArray = <T,>(array: T[], size: number): T[][] => {
+    return array.reduce((resultArray: T[][], item: T, index: number) => {
         const chunkIndex = Math.floor(index / size)
 
         if (!resultArray[chunkIndex]) {
@@ -20,8 +20,9 @@ const reduceArray = (array: any[], size: number) => {
         return resultArray
     }, [])
 }
-const projectsByTwo = reduceArray(projects, 2);
-const projectsByFour = reduceArray(projects, 4);
+
+const projectsByTwo = reduceArray<Project>(projects, 2);
+const projectsByFour = reduceArray<Project>(projects, 4);
 
 const Projects: LandingComponent = ({ className }) => {
     return (
@@ -32,10 +33,10 @@ const Projects: LandingComponent = ({ className }) => {
                 <div className="relative hidden lg:block">
                     <div className="no-scrollbar">
                         <div className="flex snap-x snap-mandatory overflow-x-auto lg:gap-6">
-                            {projectsByFour.map((projects: any, index: number) => (
+                            {projectsByFour.map((projects: Project[], index: number) => (
                                 <div key={index} className="min-w-[calc(100%-2rem)] snap-center">
                                     <div className="lg:grid lg:grid-cols-2 lg:gap-6">
-                                        {projects.map((project: any, index: number) => (
+                                        {projects.map((project: Project, index: number) => (
                                             <div key={index} className="rounded-lg border bg-card p-6">
                                                 <div className="flex items-start justify-between">
                                                     <div>
@@ -65,7 +66,7 @@ const Projects: LandingComponent = ({ className }) => {
                 <div className="relative lg:hidden -mx-6">
                     <div className="no-scrollbar grid gap-6 px-6">
                         <div className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6">
-                            {projectsByTwo.map(([upper, lower]: any[], index: number) => (
+                            {projectsByTwo.map(([upper, lower]: Project[], index: number) => (
                                 <div key={index} className="min-w-[calc(100%-2rem)] snap-center">
                                     <div className="rounded-lg border bg-card p-6 mb-6">
                                         <div className="flex items-start justify-between">

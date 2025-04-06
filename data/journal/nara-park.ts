@@ -1,5 +1,7 @@
-export const post = {
-    title: "Nara Park",
+import { JournalPost } from "./types";
+
+export const post: JournalPost = {
+    title: "Arrival in Nara",
     date: "October 6, 2024",
     description: "Ektar 100 shot in Nara, on a Canon 300V and a Canon 40mm f/2.8 STM.\nSelf scanned with a 100mm macro lens on a Canon 6D.",
     slug: "nara-park",

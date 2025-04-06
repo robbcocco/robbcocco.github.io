@@ -1,4 +1,15 @@
-export const experiences = [
+export interface Experience {
+    period: string;
+    role: string;
+    company: string;
+}
+
+export interface WhatIDo {
+    description: string;
+    list: string[];
+}
+
+export const experiences: Experience[] = [
     {
         period: "September 2023 - Present",
         role: "Senior Developer",
@@ -21,7 +32,7 @@ export const experiences = [
     },
 ]
 
-export const whatido = {
+export const whatido: WhatIDo = {
     description: `
     Well versed in backend development with years of experience in building RESTful APIs with Node.js and Express or NestJS.
     Capable of working with a variety of databases, including SQL and NoSQL solutions, also have experience with Docker.
