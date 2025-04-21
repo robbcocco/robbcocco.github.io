@@ -10,15 +10,15 @@ export default function SideFilm({
     children,
     post,
     slideshow,
-    film_brand = ""
+    film_brand = "",
+    setSelectedImage
 }: {
     children: React.ReactNode,
     post: any,
     slideshow: any[],
-    film_brand: string
+    film_brand: string,
+    setSelectedImage: (image: string | null) => void
 }) {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null)
-
     useEffect(() => {
         
     }, [])
@@ -46,31 +46,6 @@ export default function SideFilm({
                     <ScrollingFilm children={children} slideshow={slideshow} film_brand={film_brand} setSelectedImage={setSelectedImage}  />                    
                 </div >
             </div>
-
-            {/* Fullscreen Image Viewer */}
-            {selectedImage && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-6"
-                    onClick={() => setSelectedImage(null)}
-                >
-                    <button
-                        className="absolute right-6 top-6 rounded-full bg-background p-2 text-foreground shadow-md"
-                        onClick={() => setSelectedImage(null)}
-                    >
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close</span>
-                    </button>
-                    <div className="relative h-[80vh] w-full max-w-5xl">
-                        <Image
-                            src={selectedImage || "/placeholder.svg"}
-                            alt="Enlarged view"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
-                    </div>
-                </div>
-            )}
         </main>
     )
 }
