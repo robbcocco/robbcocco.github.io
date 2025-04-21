@@ -8,27 +8,27 @@ import { cn } from "@/lib/utils"
 
 const Contacts: LandingComponent = ({ className }) => {
     return (
-        <section className={cn(`flex min-h-screen items-center justify-center px-6 -mt-20`, className)}>
+        <section className={cn(`flex min-h-screen items-center justify-center px-4 sm:px-6 -mt-16 sm:-mt-20`, className)}>
             <div className="mx-auto max-w-[800px] text-center">
-                <h2 id="contactme" className="mb-12 text-2xl font-semibold">Get in Touch</h2>
-                <div className="space-y-6">
-                    <p className="text-muted-foreground">
+                <h2 id="contactme" className="mb-8 sm:mb-12 text-xl sm:text-2xl font-semibold">Get in Touch</h2>
+                <div className="space-y-4 sm:space-y-6">
+                    <p className="text-sm sm:text-base text-muted-foreground">
                         I'm always interested in hearing about new projects and opportunities.
                     </p>
                     {self.email ??
                         <div className="space-y-2">
-                            <p className="font-medium">Email</p>
-                            <p className="text-muted-foreground">{self.email}</p>
+                            <p className="font-medium text-sm sm:text-base">Email</p>
+                            <p className="text-sm sm:text-base text-muted-foreground">{self.email}</p>
                         </div>}
                     {self.phone ??
                         <div className="space-y-2">
-                            <p className="font-medium">Phone</p>
-                            <p className="text-muted-foreground">{self.phone}</p>
+                            <p className="font-medium text-sm sm:text-base">Phone</p>
+                            <p className="text-sm sm:text-base text-muted-foreground">{self.phone}</p>
                         </div>}
                     {self.location ??
                         <div className="space-y-2">
-                            <p className="font-medium">Location</p>
-                            <p className="text-muted-foreground">{self.location}</p>
+                            <p className="font-medium text-sm sm:text-base">Location</p>
+                            <p className="text-sm sm:text-base text-muted-foreground">{self.location}</p>
                         </div>}
                     <div className="space-y-2">
                         <p className="font-medium">Social</p>

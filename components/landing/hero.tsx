@@ -9,11 +9,11 @@ import { cn } from "@/lib/utils"
 
 const Hero: LandingComponent = ({ className }) => {
     return (
-        <section className={cn(`flex min-h-screen items-center justify-center px-6 mb-20`, className)}>
+        <section className={cn(`flex min-h-screen items-center justify-center px-4 sm:px-6 mb-12 sm:mb-20`, className)}>
             <div className="mx-auto max-w-[800px] text-center">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">{self.title}</h1>
-                <p className="mt-6 text-lg text-muted-foreground">{self.description}</p>
-                <div className="mt-8 flex justify-center gap-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">{self.title}</h1>
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground">{self.description}</p>
+                <div className="mt-6 sm:mt-8 flex justify-center gap-4 sm:gap-6">
                     {self.social.map((social, index) => (
                         <Link
                             key={index}
